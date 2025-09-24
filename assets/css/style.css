@@ -204,13 +204,18 @@ section {
     outline-offset: 2px;
 }
 
+/* ========== COURSE CONTENT ========== */
 #course-content {
-  width: 800px;
-  text-align: center;
+    width: min(800px, 95%);
+    text-align: center;
+    padding: 0 var(--spacing-sm);
 }
 
-#course-content .modules-list {
-  margin: 24px 0;
+.modules-list {
+    margin: var(--spacing-md) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
 }
 
 .module {
@@ -251,27 +256,35 @@ section {
     text-shadow: 0 0 8px var(--color-blue);
 }
 
+/* ========== TRANSFORM WORLD SECTION ========== */
 #transform-world {
-  height: 560px;
-  background-size: cover;
-  background-image: url("../images/woman-code.png");
-  background-attachment: fixed;
-  border-top: 1px solid #33A8DB80;
-  border-bottom: 1px solid #33A8DB80;
-  padding: 200px;
+    height: 560px;
+    background-size: cover;
+    background-image: url("../images/woman-code.png");
+    background-attachment: fixed;
+    background-position: center;
+    border-top: 1px solid var(--color-blue-transparent);
+    border-bottom: 1px solid var(--color-blue-transparent);
+    padding: var(--spacing-2xl);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 #transform-world p {
-  font-weight: 900;
-  font-size: 2.5rem;
-  text-transform: lowercase;
-  max-width: 250px;
-  text-shadow: 3px 2px #33A8DB;
+    font-weight: 900;
+    font-size: var(--font-size-2xl);
+    text-transform: lowercase;
+    max-width: min(250px, 90%);
+    text-shadow: 3px 2px var(--color-blue);
+    line-height: 1.2;
 }
 
+/* ========== PROFESSIONAL CHALLENGES ========== */
 #professional-challenges {
-  text-align: center;
-  width: 800px;
+    text-align: center;
+    width: min(800px, 95%);
+    padding: 0 var(--spacing-sm);
 }
 
 #professional-challenges img {
@@ -354,11 +367,44 @@ footer a:hover {
 }
 
 /* ========== RESPONSIVE DESIGN ========== */
-@media (max-width: 768px) {
+
+@media (min-width: 1200px) {
+    .banner h1 {
+        font-size: 3rem;
+    }
+    
+    .banner-content {
+        width: min(700px, 90%);
+    }
+    
+    #course-content {
+        width: min(900px, 90%);
+    }
+    
+    #professional-challenges {
+        width: min(900px, 90%);
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .banner {
+        height: 550px;
+    }
+    
+    #course-content {
+        width: min(850px, 90%);
+    }
+    
+    #professional-challenges {
+        width: min(850px, 90%);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
     .banner {
         height: auto;
         min-height: 500px;
-        padding: var(--spacing-lg) var(--spacing-sm);
+        padding: var(--spacing-lg) var(--spacing-md);
     }
     
     .banner h1 {
@@ -366,38 +412,390 @@ footer a:hover {
     }
     
     .logo {
-        width: 200px;
-        height: 200px;
+        width: 220px;
+        height: 220px;
+    }
+    
+    #course-content {
+        width: 95%;
+    }
+    
+    #professional-challenges {
+        width: 95%;
+    }
+    
+    .module {
+        width: min(600px, 100%);
     }
     
     #transform-world {
-        padding: var(--spacing-2xl) var(--spacing-sm);
+        padding: var(--spacing-xl) var(--spacing-md);
         background-attachment: scroll;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .banner {
+        height: auto;
+        min-height: 480px;
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+    
+    .banner h1 {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .banner p {
+        font-size: var(--font-size-lg);
+        margin: var(--spacing-sm) 0 var(--spacing-lg);
+    }
+    
+    .logo {
+        width: 200px;
+        height: 200px;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .banner button {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: var(--font-size-base);
+        letter-spacing: 2px;
+    }
+    
+    #course-content,
+    #professional-challenges {
+        width: 95%;
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .module {
+        width: 100%;
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    #transform-world {
+        height: auto;
+        min-height: 400px;
+        padding: var(--spacing-xl) var(--spacing-sm);
+        background-attachment: scroll;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     #transform-world p {
         font-size: var(--font-size-xl);
         max-width: 100%;
+        text-align: center;
     }
     
-    .module {
-        padding: var(--spacing-sm);
-        margin-bottom: var(--spacing-sm);
+    h2 {
+        font-size: 1.5rem;
+        letter-spacing: 3px;
     }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 480px) and (max-width: 575px) {
+    .banner {
+        height: auto;
+        min-height: 450px;
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+    
     .banner h1 {
         font-size: var(--font-size-lg);
+        line-height: 1.2;
+        margin-bottom: var(--spacing-sm);
     }
     
     .banner p {
         font-size: var(--font-size-base);
+        margin: var(--spacing-sm) 0 var(--spacing-md);
+        line-height: 1.4;
+    }
+    
+    .logo {
+        width: 180px;
+        height: 180px;
+        margin-bottom: var(--spacing-sm);
     }
     
     .banner button {
         padding: 12px var(--spacing-md);
         font-size: 0.9rem;
+        letter-spacing: 1px;
+        width: 80%;
+        max-width: 280px;
+    }
+    
+    #course-content,
+    #professional-challenges {
+        width: 100%;
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .module {
+        width: 100%;
+        padding: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
+        font-size: 0.9rem;
+    }
+    
+    #transform-world {
+        height: auto;
+        min-height: 350px;
+        padding: var(--spacing-lg) var(--spacing-sm);
+        background-attachment: scroll;
+    }
+    
+    #transform-world p {
+        font-size: 1.8rem;
+        max-width: 100%;
+        text-align: center;
+        line-height: 1.1;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    section {
+        margin: var(--spacing-xl) auto;
+    }
+}
+
+@media (max-width: 479px) {
+    .banner {
+        height: auto;
+        min-height: 400px;
+        padding: var(--spacing-sm);
+    }
+    
+    .banner h1 {
+        font-size: 1.5rem;
+        line-height: 1.1;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .banner p {
+        font-size: 0.9rem;
+        margin: var(--spacing-sm) 0;
+        line-height: 1.3;
+    }
+    
+    .logo {
+        width: 150px;
+        height: 150px;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .banner button {
+        padding: 10px var(--spacing-sm);
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+        width: 90%;
+        max-width: 250px;
+    }
+    
+    #course-content,
+    #professional-challenges {
+        width: 100%;
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .module {
+        width: 100%;
+        padding: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
+        font-size: 0.85rem;
+        border-radius: 50px;
+    }
+    
+    #transform-world {
+        height: auto;
+        min-height: 300px;
+        padding: var(--spacing-lg) var(--spacing-sm);
+        background-attachment: scroll;
+    }
+    
+    #transform-world p {
+        font-size: 1.5rem;
+        max-width: 100%;
+        text-align: center;
+        line-height: 1.0;
+    }
+    
+    h2 {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        margin-bottom: var(--spacing-sm);
+        line-height: 1.2;
+    }
+    
+    section {
+        margin: var(--spacing-lg) auto;
+    }
+    
+    footer {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+    
+    .dio-logo {
+        width: min(250px, 90%);
+    }
+    
+    footer p {
+        font-size: 0.9rem;
+        margin-top: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 320px) {
+    .banner {
+        min-height: 350px;
+        padding: var(--spacing-sm) 10px;
+    }
+    
+    .banner h1 {
+        font-size: 1.3rem;
+    }
+    
+    .banner p {
+        font-size: 0.85rem;
+    }
+    
+    .logo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .banner button {
+        padding: 8px var(--spacing-sm);
+        font-size: 0.75rem;
+        width: 95%;
+    }
+    
+    .module {
+        font-size: 0.8rem;
+        padding: 12px;
+    }
+    
+    #transform-world p {
+        font-size: 1.3rem;
+    }
+    
+    h2 {
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+/* ========== ORIENTATION SPECIFIC ========== */
+@media (orientation: landscape) and (max-height: 600px) {
+    .banner {
+        height: auto;
+        min-height: 100vh;
+        padding: var(--spacing-sm);
+    }
+    
+    .logo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .banner h1 {
+        font-size: 1.5rem;
+        margin: var(--spacing-sm) 0;
+    }
+    
+    .banner p {
+        font-size: 0.9rem;
+        margin: var(--spacing-sm) 0;
+    }
+    
+    #transform-world {
+        min-height: 50vh;
+        padding: var(--spacing-md);
+    }
+}
+
+/* ========== HIGH DPI DISPLAYS ========== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo img,
+    .dio-logo,
+    #professional-challenges img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* ========== UTILITY CLASSES FOR RESPONSIVE ========== */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col {
+    flex: 1;
+    padding: 0 15px;
+}
+
+@media (max-width: 576px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+@media (max-width: 768px) {
+    .text-center-mobile { text-align: center; }
+    .text-left-mobile { text-align: left; }
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+    .banner,
+    #transform-world,
+    footer {
+        background: none !important;
+        color: #000 !important;
+    }
+    
+    .banner button,
+    .logo:hover::before {
+        display: none !important;
+    }
+    
+    .module {
+        border: 1px solid #000 !important;
+        background: none !important;
+        color: #000 !important;
+    }
+    
+    a {
+        color: #000 !important;
+        text-decoration: underline !important;
     }
 }
 
@@ -410,5 +808,30 @@ footer a:hover {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+@media (prefers-contrast: high) {
+    .banner,
+    .module,
+    footer {
+        border: 2px solid var(--color-white);
+    }
+    
+    .banner button {
+        border-width: 3px;
+    }
+}
+
+/* ========== CONTAINER QUERIES (Future-proofing) ========== */
+@supports (container-type: inline-size) {
+    .banner-content {
+        container-type: inline-size;
+    }
+    
+    @container (max-width: 400px) {
+        .banner h1 {
+            font-size: 1.2rem;
+        }
     }
 }
